@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data\stubFile.json">
+    <EmbeddedResource Include="blank.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

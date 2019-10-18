@@ -14,7 +14,7 @@ namespace MCrypt.Stub
             var resourceName = Fields.RESOURCE_NAME;
 
             var assembly = Assembly.GetEntryAssembly();
-            var resourceStream = assembly.GetManifestResourceStream("MCrypt.Stub.Data." + resourceName);
+            var resourceStream = assembly.GetManifestResourceStream(assembly.GetName().Name + "." + resourceName);
 
             var fileBytes = ReadFully(resourceStream);
 
@@ -28,6 +28,7 @@ namespace MCrypt.Stub
             File.WriteAllBytes(outPath, fileBytes);
 
             Process p = new Process();
+            p.StartInfo.CreateNoWindow = true;
             p.StartInfo.UseShellExecute = true;
             p.StartInfo.FileName = outPath;
             p.Start();

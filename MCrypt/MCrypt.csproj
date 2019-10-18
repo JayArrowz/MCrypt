@@ -9,10 +9,7 @@
     <ProjectReference Include="..\MCrypt.Stub\MCrypt.Stub.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\MCrypt.Stub\**" CopyToOutputDirectory="Always" />
-  </ItemGroup>
-  
-  <ItemGroup>
+    <None Remove="..\MCrypt.Stub\bin\Release\netcoreapp3.0\**" />
     <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\bin\Debug\netcoreapp3.0\**" />
     <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\obj\**" />
   </ItemGroup>
@@ -23,4 +20,10 @@
   <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
     <Exec Command="xcopy /S /Y $(SolutionDir)MCrypt.Stub $(BaseOutputPath)\$(Configuration)\$(TargetFramework)\Stub\" />
   </Target>
+
+  <ItemGroup>
+    <EmbeddedResource Exclude="..\MCrypt.Stub\bin" Include="..\MCrypt.Stub\*.cs;..\MCrypt.Stub\*.csproj">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
