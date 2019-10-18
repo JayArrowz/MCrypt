@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\MCrypt.Stub\MCrypt.Stub.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\MCrypt.Stub\**" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\bin\Debug\netcoreapp3.0\**" />
+    <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\MCrypt.Stub.csproj" />
+    <None Remove="C:\Users\J\source\repos\MCrypt\MCrypt.Stub\StubFile.cs" />
+  </ItemGroup>
+  <Target Name="PostBuild" BeforeTargets="PostBuildEvent">
+    <Exec Command="xcopy /S /Y $(SolutionDir)MCrypt.Stub $(BaseOutputPath)\$(Configuration)\$(TargetFramework)\Stub\" />
+  </Target>
+</Project>

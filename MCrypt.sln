@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCrypt", "MCrypt\MCrypt.csproj", "{0737EC6B-DB47-4808-952F-DAD8384135A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCrypt.Stub", "MCrypt.Stub\MCrypt.Stub.csproj", "{465AC111-38CB-4CE1-B040-816E9603D687}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0737EC6B-DB47-4808-952F-DAD8384135A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0737EC6B-DB47-4808-952F-DAD8384135A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0737EC6B-DB47-4808-952F-DAD8384135A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0737EC6B-DB47-4808-952F-DAD8384135A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{465AC111-38CB-4CE1-B040-816E9603D687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{465AC111-38CB-4CE1-B040-816E9603D687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{465AC111-38CB-4CE1-B040-816E9603D687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{465AC111-38CB-4CE1-B040-816E9603D687}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47E360D8-AB30-4EF6-BBBF-F58D8C6630B6}
+	EndGlobalSection
+EndGlobal

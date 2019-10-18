@@ -1,0 +1,10 @@
+
+.vs/MCrypt/v16/.suo
+.vs/MCrypt/v16/Server/sqlite3/db.lock
+.vs/MCrypt/v16/Server/sqlite3/storage.ide
+.vs/MCrypt/v16/Server/sqlite3/storage.ide-shm
+.vs/MCrypt/v16/Server/sqlite3/storage.ide-wal
+MCrypt/obj
+MCrypt/bin
+MCrypt.Stub/obj
+MCrypt.Stub/bin
