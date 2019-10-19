@@ -11,7 +11,7 @@ Output file is located here:
 C:\Users\YOURUSER\AppData\Local\Temp\TempCrypt\publish\MCrypt.Stub.exe
 
 Requirements to run MCrypt
-.NET Core 3 Runtime/SDK [url=https://8ez.com/96w]Download .NET Core 3.0 (Linux, macOS, and Windows)[/url]
+.NET Core 3 Runtime/SDK .NET Core 3.0 (Linux, macOS, and Windows)
 
 Features
 Supports any file type (.doc, .exe, .pdf .... etc)
