@@ -26,9 +26,6 @@ namespace MCrypt
         //TODO: arg[1]? = Runtime https://docs.microsoft.com/en-us/dotnet/core/rid-catalog If self contained
         public static void Main(string[] args)
         {
-            args = new string[1];
-            args[0] = @"C:\Users\J\Desktop\Videos\Login.mp4";
-
             if (args.Length <= 0)
             {
                 Console.WriteLine("Please specify a file.");
