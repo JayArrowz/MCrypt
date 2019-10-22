@@ -9,5 +9,7 @@ namespace MCrypt.Stub
         public static string RESOURCE_NAME;
 
         public static string DECRYPTION_GUID = "";
+
+        public static int SECONDS_DELAY = 1;
     }
 }

