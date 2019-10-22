@@ -1,7 +1,6 @@
 # MCrypt
 Encrypt file and load
 
-This project can also be used as a base for future crypter projects in C#.
 This project was made for educational purposes.
 
 It can bind & encrypt multiple files together and execute with a delay. The default delay is 10 seconds.
