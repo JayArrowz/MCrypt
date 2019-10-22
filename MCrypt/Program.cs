@@ -18,11 +18,9 @@ namespace MCrypt
         private const string SecondsDelayVar = "Fields.SECONDS_DELAY";
         private static string StubFileName => nameof(StubFile) + ".cs";
         private static string ProjectFileName => "MCrypt.Stub.csproj";
-
         private const string ResourceText = "<ItemGroup>\r\n    <EmbeddedResource Include=\"{0}\">\r\n      <CopyToOutputDirectory>Always</CopyToOutputDirectory>\r\n    </EmbeddedResource>\r\n  </ItemGroup>";
         private const string ProjectEndText = "</Project>";
 
-        //TODO: arg[1]? = Runtime https://docs.microsoft.com/en-us/dotnet/core/rid-catalog If self contained
         public static void Main(string[] args)
         {
             if (args.Length != 0)
@@ -42,12 +40,13 @@ namespace MCrypt
                         Console.Write("Enter Command (.e.g. help, crypt): ");
                         var line = Console.ReadLine().Trim();
                         var commandArgs = Regex.Split(line, "(?<=^[^\"]*(?:\"[^\"]*\"[^\"]*)*) (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                        for(var i = 0; i < commandArgs.Length; i++)
+                        for (var i = 0; i < commandArgs.Length; i++)
                         {
                             commandArgs[i] = commandArgs[i].Replace("\"", string.Empty);
                         }
                         Parse(commandArgs);
-                    } catch(Exception e)
+                    }
+                    catch (Exception e)
                     {
                         Console.WriteLine(e);
                     }
@@ -60,7 +59,7 @@ namespace MCrypt
 
             var parseResult = Parser.Default.ParseArguments(args, typeof(CryptCommand));
             _ = parseResult.MapResult((opts) => ExecuteCommand(opts), (error) => HandleParseError(error));
-            
+
         }
 
         private static bool ExecuteCommand(object opts)
@@ -181,7 +180,8 @@ namespace MCrypt
                 var outputPath = Path.Combine(command.OutputDir, command.OutputFileName);
                 Console.WriteLine("Copying files to " + outputPath);
                 File.Move(outputExe, outputPath);
-            } else
+            }
+            else
             {
                 Console.WriteLine("Error publishing application");
             }

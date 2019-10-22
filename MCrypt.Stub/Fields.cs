@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MCrypt.Stub
+﻿namespace MCrypt.Stub
 {
     public static class Fields
     {
