@@ -41,8 +41,11 @@ namespace MCrypt
                     {
                         Console.Write("Enter Command (.e.g. help, crypt): ");
                         var line = Console.ReadLine().Trim();
-                        line = line.Replace("\"", "");
                         var commandArgs = Regex.Split(line, "(?<=^[^\"]*(?:\"[^\"]*\"[^\"]*)*) (?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                        for(var i = 0; i < commandArgs.Length; i++)
+                        {
+                            commandArgs[i] = commandArgs[i].Replace("\"", string.Empty);
+                        }
                         Parse(commandArgs);
                     } catch(Exception e)
                     {
