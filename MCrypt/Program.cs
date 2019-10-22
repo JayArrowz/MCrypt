@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using MCrypt.Commands;
 using MCrypt.Stub;
 using System;
 using System.Collections.Generic;

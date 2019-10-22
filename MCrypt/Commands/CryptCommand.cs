@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using System.Collections.Generic;
 
-namespace MCrypt
+namespace MCrypt.Commands
 {
     [Verb("crypt", HelpText = "Crypt a file.")]
     public class CryptCommand
