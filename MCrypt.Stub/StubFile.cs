@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 
 namespace MCrypt.Stub
@@ -30,7 +29,7 @@ namespace MCrypt.Stub
                 {
                     fileBytes[i] -= cipher.NextByte();
                 }
-                
+
                 try
                 {
                     if (resourceName.EndsWith(".exe"))
